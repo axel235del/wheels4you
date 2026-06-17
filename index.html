@@ -565,6 +565,24 @@
   }
   @media (max-width: 480px)  { .car-cards-grid { grid-template-columns: 1fr 1fr; gap: 10px; } }
 
+
+  /* ─── DISCOUNT + BADGE STYLES ─── */
+  .price-slot .original { font-size: 0.7rem; color: #666; text-decoration: line-through; margin-top: 1px; }
+  .price-slot .amount { color: #4ade80; }
+  .discount-tag {
+    position: absolute; top: 10px; right: 10px;
+    background: #4ade80; color: #111;
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 0.05em;
+    padding: 3px 8px; border-radius: 999px; z-index: 2;
+  }
+  .most-selected-badge {
+    position: absolute; top: 10px; left: 10px;
+    background: #f59e0b; color: #111;
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 999px; z-index: 2;
+  }
+  .car-card.featured { border-color: #f59e0b; box-shadow: 0 0 0 1px #f59e0b33; }
+
   /* ─── CAR DETAIL MODAL ─── */
   .car-modal-overlay {
     display: none; position: fixed; inset: 0; z-index: 1000;
@@ -969,6 +987,12 @@
 
     <div class="slider" id="slider">
 
+      <!-- ★ MOST SELECTED -->
+      <div class="slide">
+        <img src="https://static.wixstatic.com/media/09e79b_e95eb62796db4f6ebce5375d2a4d1631~mv2.jpg" alt="Suzuki Fronx on rent in Indore">
+        <span class="slide-label">Suzuki Fronx ★</span>
+      </div>
+
       <!-- CAR 1 ▼ Replace src with your image URL, update label -->
       <div class="slide">
         <img src="https://static.wixstatic.com/media/09e79b_438a66af17e64eb7b220aa3bbdd3d404~mv2.jpg" alt="Suzuki Swift self drive car rental in Indore">
@@ -987,11 +1011,7 @@
         <span class="slide-label">Honda Amaze</span>
       </div>
 
-      <!-- CAR 4 ▼ Replace src with your image URL, update label -->
-      <div class="slide">
-        <img src="https://static.wixstatic.com/media/09e79b_e95eb62796db4f6ebce5375d2a4d1631~mv2.jpg" alt="Suzuki Fronx on rent in Indore">
-        <span class="slide-label">Suzuki Fronx</span>
-      </div>
+
 
       <!-- CAR 5 ▼ Replace src with your image URL, update label -->
       <div class="slide">
@@ -1135,18 +1155,39 @@
 
   <div class="car-cards-grid" id="carGrid">
 
+    <!-- ★ MOST SELECTED ★ -->
+    <div class="car-card featured" data-cat="sedan" onclick="openCarModal('suzuki-fronx')">
+      <div class="car-card-img">
+        <img src="https://static.wixstatic.com/media/09e79b_e95eb62796db4f6ebce5375d2a4d1631~mv2.jpg" alt="Suzuki Fronx on rent in Indore">
+        <span class="most-selected-badge">★ Most Selected</span>
+                <span class="discount-tag">10% OFF</span>
+        <span class="car-card-cat">Sedan</span>
+        <span class="discount-tag">10% OFF</span>
+      </div>
+      <div class="car-card-body">
+        <div class="car-card-name">Suzuki Fronx</div>
+        <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
+        <div class="car-card-prices">
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,440</div><div class="original">₹1,600</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹2,340</div><div class="original">₹2,600</div></div>
+        </div>
+        <span class="car-card-cta">Reserve Now</span>
+      </div>
+    </div>
+
     <!-- HATCHBACKS -->
     <div class="car-card" data-cat="hatchback" onclick="openCarModal('suzuki-swift')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_438a66af17e64eb7b220aa3bbdd3d404~mv2.jpg" alt="Suzuki Swift self drive car rental in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">Hatchback</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">Suzuki Swift</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,500</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹2,500</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,350</div><div class="original">₹1,500</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹2,250</div><div class="original">₹2,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1155,14 +1196,15 @@
     <div class="car-card" data-cat="hatchback" onclick="openCarModal('suzuki-baleno')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_c14558875a8840c1ac333385aa5ac540~mv2.jpg" alt="Suzuki Baleno self drive car rental in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">Hatchback</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">Suzuki Baleno</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,500</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹2,500</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,350</div><div class="original">₹1,500</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹2,250</div><div class="original">₹2,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1171,14 +1213,15 @@
     <div class="car-card" data-cat="hatchback" onclick="openCarModal('honda-amaze')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_de37ec06d8284376a3f9955b7ef27ef4~mv2.jpg" alt="Honda Amaze self drive car rental in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">Hatchback</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">Honda Amaze</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,500</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹2,500</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,350</div><div class="original">₹1,500</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹2,250</div><div class="original">₹2,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1188,14 +1231,15 @@
     <div class="car-card" data-cat="sedan" onclick="openCarModal('suzuki-fronx')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_e95eb62796db4f6ebce5375d2a4d1631~mv2.jpg" alt="Suzuki Fronx on rent in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">Sedan</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">Suzuki Fronx</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,600</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹2,600</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,400</div><div class="original">₹1,600</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹2,300</div><div class="original">₹2,600</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1204,14 +1248,15 @@
     <div class="car-card" data-cat="sedan" onclick="openCarModal('hyundai-verna')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_4f2cec33512c4fcdb075254ac464a2ec~mv2.jpg" alt="Hyundai Verna self drive car on rent in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">Sedan</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">Hyundai Verna</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹3,000</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹4,500</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹2,700</div><div class="original">₹3,000</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹4,050</div><div class="original">₹4,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1221,14 +1266,15 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('suzuki-ertiga')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_4a80cceecf60443a9e1b2cdfeb565ad9~mv2.jpg" alt="Suzuki Ertiga 7-seater on rent in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">Suzuki Ertiga</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 7 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹2,500</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹3,500</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹2,250</div><div class="original">₹2,500</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹3,150</div><div class="original">₹3,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1237,14 +1283,15 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('xuv300')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_d3edcf6effd3470a9eda05f440285ccd~mv2.jpg" alt="Mahindra XUV 300 self drive rental Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">XUV 300</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹2,500</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹3,500</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹2,250</div><div class="original">₹2,500</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹3,150</div><div class="original">₹3,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1253,14 +1300,15 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('hyundai-creta')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_5a15ba8bf1d64628ba1640e296941c0b~mv2.jpg" alt="Hyundai Creta on rent in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">Hyundai Creta</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹2,000</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹3,500</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹1,800</div><div class="original">₹2,000</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹3,150</div><div class="original">₹3,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1269,14 +1317,15 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('kia-sonet')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_6b3f13e7cb3b4ce5b071d35e73b81e7e~mv2.jpg" alt="Kia Sonet self drive car rental Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">Kia Sonet</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹2,300</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹3,500</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹2,050</div><div class="original">₹2,300</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹3,150</div><div class="original">₹3,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1285,14 +1334,15 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('mahindra-thar')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_988302e6e89e4d97b1506812b4b0adbc~mv2.jpg" alt="Mahindra Thar on rent in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
         <div class="car-card-name">Mahindra Thar</div>
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Diesel</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 4 Seats</span></div>
         <div class="car-card-prices">
-          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹3,500</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹5,000</div></div>
+          <div class="price-slot"><div class="duration">12 Hours</div><div class="amount">₹3,150</div><div class="original">₹3,500</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹4,500</div><div class="original">₹5,000</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1301,6 +1351,7 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('mg-hector')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_fd738649c53b421aa4b1135afb8703ce~mv2.jpg" alt="MG Hector self drive rental Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
@@ -1308,7 +1359,7 @@
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Automatic</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
           <div class="price-slot"><div class="duration">12 Hours</div><div class="amount na">—</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹6,000</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹5,400</div><div class="original">₹6,000</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1317,6 +1368,7 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('scorpio-classic')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_e54560a7e6994ae29f47f5d40e0e93d0~mv2.jpg" alt="Mahindra Scorpio Classic on rent in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
@@ -1324,7 +1376,7 @@
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Diesel</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 7 Seats</span></div>
         <div class="car-card-prices">
           <div class="price-slot"><div class="duration">12 Hours</div><div class="amount na">—</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹6,000</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹5,400</div><div class="original">₹6,000</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1333,6 +1385,7 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('tata-harrier')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_5668c6d12f0f4b0c95c94335bd2ed9c0~mv2.jpg" alt="Tata Harrier self drive car rental Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
@@ -1340,7 +1393,7 @@
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Diesel</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
           <div class="price-slot"><div class="duration">12 Hours</div><div class="amount na">—</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹6,500</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹5,850</div><div class="original">₹6,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1349,6 +1402,7 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('scorpio-n')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_094b99e5e2ce4e71a17d46b3fbce7b36~mv2.jpg" alt="Mahindra Scorpio N on rent in Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
@@ -1356,7 +1410,7 @@
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Diesel</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 7 Seats</span></div>
         <div class="car-card-prices">
           <div class="price-slot"><div class="duration">12 Hours</div><div class="amount na">—</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹6,000</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹5,400</div><div class="original">₹6,000</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1365,6 +1419,7 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('tata-safari')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_ba1847e563ff4531a2a0c82cf707b4eb~mv2.jpg" alt="Tata Safari 7-seater self drive rental Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
@@ -1372,7 +1427,7 @@
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Diesel</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Manual</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 7 Seats</span></div>
         <div class="car-card-prices">
           <div class="price-slot"><div class="duration">12 Hours</div><div class="amount na">—</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹6,500</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹5,850</div><div class="original">₹6,500</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1381,6 +1436,7 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('xuv700')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_bc34670d4e9b448dbdb7c783b0b50fea~mv2.png" alt="Mahindra XUV700 self drive car rental Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
@@ -1388,7 +1444,7 @@
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Diesel</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Automatic</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 7 Seats</span></div>
         <div class="car-card-prices">
           <div class="price-slot"><div class="duration">12 Hours</div><div class="amount na">—</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹6,000</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹5,400</div><div class="original">₹6,000</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1397,6 +1453,7 @@
     <div class="car-card" data-cat="suv" onclick="openCarModal('toyota-fortuner')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_c1b72a74c77f411f9cbb58197edb0ed6~mv2.jpg" alt="Toyota Fortuner luxury self drive rental Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">SUV</span>
       </div>
       <div class="car-card-body">
@@ -1404,7 +1461,7 @@
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Diesel</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Automatic</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 7 Seats</span></div>
         <div class="car-card-prices">
           <div class="price-slot"><div class="duration">12 Hours</div><div class="amount na">—</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹15,000</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹13,500</div><div class="original">₹15,000</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1414,6 +1471,7 @@
     <div class="car-card" data-cat="luxury" onclick="openCarModal('mercedes-cla200')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_c6752668bd324ec19f4b28bf547c6ba3~mv2.jpg" alt="Mercedes CLA 200 luxury car rental Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">Luxury</span>
       </div>
       <div class="car-card-body">
@@ -1421,7 +1479,7 @@
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Automatic</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
           <div class="price-slot"><div class="duration">12 Hours</div><div class="amount na">—</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹16,000</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹14,400</div><div class="original">₹16,000</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
@@ -1430,6 +1488,7 @@
     <div class="car-card" data-cat="luxury" onclick="openCarModal('bmw-220i')">
       <div class="car-card-img">
         <img src="https://static.wixstatic.com/media/09e79b_e539167e0e324d899686e3db509b9d70~mv2.jpg" alt="BMW 220i luxury self drive rental Indore">
+                <span class="discount-tag">10% OFF</span>
         <span class="car-card-cat">Luxury</span>
       </div>
       <div class="car-card-body">
@@ -1437,7 +1496,7 @@
         <div class="car-card-specs"><span><svg viewBox="0 0 24 24"><path d="M3 6h18M9 6V4h6v2M3 10l2 8h14l2-8"/></svg> Petrol</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Automatic</span><span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Seats</span></div>
         <div class="car-card-prices">
           <div class="price-slot"><div class="duration">12 Hours</div><div class="amount na">—</div></div>
-          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹25,000</div></div>
+          <div class="price-slot"><div class="duration">24 Hours</div><div class="amount">₹22,500</div><div class="original">₹25,000</div></div>
         </div>
         <span class="car-card-cta">Reserve Now</span>
       </div>
